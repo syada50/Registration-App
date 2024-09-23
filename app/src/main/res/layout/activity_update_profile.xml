@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:cardElevation="15dp"
+    app:cardCornerRadius="15dp"
+    android:layout_margin="30dp"
+    android:layout_height="match_parent"
+    tools:context=".UpdateProfileActivity">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <EditText
+            android:id="@+id/profileNameEt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="144dp"
+            android:layout_marginEnd="10dp"
+            android:hint="Enter Profile Name"
+            android:inputType="text"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <EditText
+            android:id="@+id/profileEmailEt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Enter Profile Email"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/profileNameEt"
+            app:layout_constraintStart_toStartOf="@+id/profileNameEt"
+            app:layout_constraintTop_toBottomOf="@+id/profileNameEt"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <EditText
+            android:id="@+id/profileDOBEt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Enter Profile Date of Birth"
+            android:inputType="date"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/profileEmailEt"
+            app:layout_constraintStart_toStartOf="@+id/profileEmailEt"
+            app:layout_constraintTop_toBottomOf="@+id/profileEmailEt"
+            tools:ignore="Autofill,VisualLintTextFieldSize" />
+
+        <EditText
+            android:id="@+id/profileDistrictEt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Enter Profile District"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/profileDOBEt"
+            app:layout_constraintStart_toStartOf="@+id/profileDOBEt"
+            app:layout_constraintTop_toBottomOf="@+id/profileDOBEt"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <EditText
+            android:id="@+id/profilemobileEt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="Enter Profile Mobile"
+            android:minHeight="48dp"
+            app:layout_constraintEnd_toEndOf="@+id/profileDistrictEt"
+            app:layout_constraintStart_toStartOf="@+id/profileDistrictEt"
+            app:layout_constraintTop_toBottomOf="@+id/profileDistrictEt"
+            tools:ignore="VisualLintTextFieldSize" />
+
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="UPDATE PROFILE"
+            app:layout_constraintEnd_toEndOf="@+id/profilemobileEt"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="@+id/profilemobileEt"
+            app:layout_constraintTop_toBottomOf="@+id/profilemobileEt" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
