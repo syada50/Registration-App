@@ -29,6 +29,9 @@
 
         <activity android:name=".UpdateProfileActivity"
             android:exported="true"/>
+
+
+
     </application>
 
 </manifest>

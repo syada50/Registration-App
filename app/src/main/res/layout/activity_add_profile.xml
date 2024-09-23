@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     app:cardElevation="15dp"
+
     app:cardCornerRadius="15dp"
     android:layout_margin="30dp"
     android:layout_height="match_parent">
@@ -13,45 +14,57 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="154dp"
+            android:layout_height="117dp"
+            android:src="@drawable/img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <EditText
             android:id="@+id/profileNameEt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Enter Profile Name"
             android:background="@drawable/rounded_edit_text"
-            android:padding="12dp"
-            android:textColorHint="#757575"
-            android:textColor="@android:color/black"
+            android:hint="Enter Profile Name"
             android:inputType="textPersonName"
+            android:padding="12dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="#757575"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
         <EditText
             android:id="@+id/profileEmailEt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Enter Profile Email"
             android:background="@drawable/rounded_edit_text"
-            android:padding="12dp"
-            android:textColorHint="#757575"
-            android:textColor="@android:color/black"
+            android:hint="Enter Profile Email"
             android:inputType="textEmailAddress"
+            android:padding="12dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="#757575"
             app:layout_constraintEnd_toEndOf="@+id/profileNameEt"
             app:layout_constraintStart_toStartOf="@+id/profileNameEt"
             app:layout_constraintTop_toBottomOf="@+id/profileNameEt" />
+
         <EditText
             android:id="@+id/profileDOBEt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Enter Date of Birth"
             android:background="@drawable/rounded_edit_text"
-            android:padding="12dp"
-            android:textColorHint="#757575"
-            android:textColor="@android:color/black"
+            android:hint="Enter Date of Birth"
             android:inputType="date"
+            android:padding="12dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="#757575"
             app:layout_constraintEnd_toEndOf="@+id/profileEmailEt"
             app:layout_constraintStart_toStartOf="@+id/profileEmailEt"
             app:layout_constraintTop_toBottomOf="@+id/profileEmailEt" />
@@ -61,12 +74,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Enter Profile District"
             android:background="@drawable/rounded_edit_text"
+            android:hint="Enter Profile District"
+            android:inputType="textAutoCorrect"
             android:padding="12dp"
-            android:textColorHint="#757575"
             android:textColor="@android:color/black"
-            android:inputType="text"
+            android:textColorHint="#757575"
             app:layout_constraintEnd_toEndOf="@+id/profileDOBEt"
             app:layout_constraintStart_toStartOf="@+id/profileDOBEt"
             app:layout_constraintTop_toBottomOf="@+id/profileDOBEt" />
@@ -76,12 +89,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:hint="Enter Mobile Number"
             android:background="@drawable/rounded_edit_text"
-            android:padding="12dp"
-            android:textColorHint="#757575"
-            android:textColor="@android:color/black"
+            android:hint="Enter Mobile Number"
             android:inputType="phone"
+            android:padding="12dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="#757575"
             app:layout_constraintEnd_toEndOf="@+id/profileDistrictEt"
             app:layout_constraintStart_toStartOf="@+id/profileDistrictEt"
             app:layout_constraintTop_toBottomOf="@+id/profileDistrictEt" />
@@ -91,16 +104,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="#65A7DB"
+            android:elevation="4dp"
             android:text="Add Profile"
             android:textColor="@android:color/white"
-            android:backgroundTint="#65A7DB"
-            android:background="@drawable/rounded_button"
-            android:elevation="4dp"
             app:layout_constraintEnd_toEndOf="@+id/profilemobileEt"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="@+id/profilemobileEt"
             app:layout_constraintTop_toBottomOf="@+id/profilemobileEt" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

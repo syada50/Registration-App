@@ -3,13 +3,12 @@ package com.example.userregistrationnsdajob2
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-
+import androidx.appcompat.app.AlertDialog
 
 class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder>(DiffCallback()) {
 
@@ -61,7 +60,7 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     val profile = getItem(position)
-                    onDeleteClickListener?.invoke(profile)
+                    showDeleteConfirmationDialog(profile)
                 }
             }
 
@@ -72,6 +71,22 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
                     onUpdateClickListener?.invoke(profile)
                 }
             }
+        }
+
+        private fun showDeleteConfirmationDialog(profile: UserProfile) {
+            val context = itemView.context
+            AlertDialog.Builder(context)
+                .setTitle("Delete Profile")
+                .setMessage("Are you sure you want to delete this profile?")
+                .setPositiveButton("Yes") { dialog, _ ->
+                    onDeleteClickListener?.invoke(profile)
+                    dialog.dismiss()
+                }
+                .setNegativeButton("No") { dialog, _ ->
+                    dialog.cancel()
+                }
+                .create()
+                .show()
         }
 
         fun bind(userProfile: UserProfile) {

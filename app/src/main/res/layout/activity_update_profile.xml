@@ -15,18 +15,27 @@
         android:layout_height="match_parent"
         android:padding="10dp">
 
+        <ImageView
+            android:layout_width="234dp"
+            android:layout_height="127dp"
+            android:src="@drawable/img"
+            app:layout_constraintBottom_toTopOf="@+id/profileNameEt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <EditText
             android:id="@+id/profileNameEt"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="144dp"
+            android:layout_marginTop="212dp"
             android:layout_marginEnd="10dp"
             android:hint="Enter Profile Name"
             android:inputType="text"
             android:minHeight="48dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="VisualLintTextFieldSize" />

@@ -1,12 +1,15 @@
 package com.example.userregistrationnsdajob2
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 
 class AddProfileActivity : AppCompatActivity() {
     private lateinit var profileViewModel: UserProfileViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_profile)
@@ -26,10 +29,21 @@ class AddProfileActivity : AppCompatActivity() {
             val district = districtEditText.text.toString()
             val mobile = mobileEditText.text.toString()
 
-            val userProfile = UserProfile(name = name, email = email, dob = dob, district = district, mobile = mobile)
-            profileViewModel.insertUserProfile(userProfile)
+            // Validate inputs
+            if (name.isEmpty() || email.isEmpty() || dob.isEmpty() || district.isEmpty() || mobile.isEmpty()) {
+                // Show a toast message if any field is empty
+                Toast.makeText(this, "Please fill all fields", Toast.LENGTH_SHORT).show()
+            } else {
+                // Proceed to create the user profile
+                val userProfile = UserProfile(name = name, email = email, dob = dob, district = district, mobile = mobile)
+                profileViewModel.insertUserProfile(userProfile)
 
-            finish()
+                // Optionally show a success message
+                Toast.makeText(this, "Profile added successfully", Toast.LENGTH_SHORT).show()
+
+                // Finish the activity
+                finish()
+            }
         }
     }
 }
