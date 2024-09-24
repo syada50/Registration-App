@@ -2,9 +2,6 @@ package com.example.userregistrationnsdajob2
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.TextView
@@ -27,12 +24,11 @@ class ProfileListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_profile_list)
 
         // Initialize ViewModel
-        profileViewModel = ViewModelProvider(this).get(UserProfileViewModel::class.java)
+        profileViewModel = ViewModelProvider(this)[UserProfileViewModel::class.java]
 
         // Setup RecyclerView and Adapter
         val recyclerView = findViewById<RecyclerView>(R.id.profileRecyclerView)
         profileAdapter = ProfileAdapter()
-
         recyclerView.adapter = profileAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -40,13 +36,18 @@ class ProfileListActivity : AppCompatActivity() {
         loadingSpinner = findViewById(R.id.loadingSpinner)
         loadingText = findViewById(R.id.loadingText)
 
+        // Set up click listener for the edit button
+        profileAdapter.setOnUpdateClickListener { userProfile ->
+            val intent = Intent(this, UpdateProfileActivity::class.java)
+            intent.putExtra("USER_PROFILE", userProfile)  // Pass the selected profile to UpdateProfileActivity
+            startActivity(intent)
+        }
+
         // Show loading spinner
         showLoading()
 
-        // Simulate a 3-second delay before loading profiles
-        Handler(Looper.getMainLooper()).postDelayed({
-            loadProfiles()
-        }, 3000) // 3-second delay
+        // Load profiles directly without delay
+        loadProfiles()
 
         // Handle add profile button click
         findViewById<FloatingActionButton>(R.id.addProfileBtn).setOnClickListener {
@@ -55,13 +56,13 @@ class ProfileListActivity : AppCompatActivity() {
         }
     }
 
-    // Show spinner and reloading text
+    // Show spinner and loading text
     private fun showLoading() {
         loadingSpinner.visibility = View.VISIBLE
         loadingText.visibility = View.VISIBLE
     }
 
-    // Hide spinner and reloading text
+    // Hide spinner and loading text
     private fun hideLoading() {
         loadingSpinner.visibility = View.GONE
         loadingText.visibility = View.GONE
@@ -72,14 +73,14 @@ class ProfileListActivity : AppCompatActivity() {
         // Observe the LiveData from the ViewModel to update the UI
         profileViewModel.getUserProfiles().observe(this, Observer { profiles ->
             profiles?.let {
-                hideLoading()
-                profileAdapter.submitList(it)
+                hideLoading() // Hide loading when data is received
+                profileAdapter.submitList(it) // Update the adapter with new profiles
             }
         })
     }
 
     override fun onStart() {
         super.onStart()
-        // Optionally handle loading when returning to the activity
+        loadProfiles() // Load profiles when the activity starts
     }
 }

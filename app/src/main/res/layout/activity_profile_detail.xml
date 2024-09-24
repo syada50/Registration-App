@@ -108,6 +108,15 @@
             android:layout_height="wrap_content"
             android:textSize="16sp" />
 
+        <ImageButton
+            android:id="@+id/editBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:src="@drawable/pencil"
+        android:contentDescription="Edit Profile" />
+
+
     </LinearLayout>
 
 

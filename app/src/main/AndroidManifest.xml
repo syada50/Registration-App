@@ -30,6 +30,9 @@
         <activity android:name=".UpdateProfileActivity"
             android:exported="true"/>
 
+        <activity android:name=".ProfileDetailActivity">
+
+        </activity>
 
 
     </application>

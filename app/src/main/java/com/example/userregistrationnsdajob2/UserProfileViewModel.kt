@@ -15,6 +15,10 @@ class UserProfileViewModel(application: Application) : AndroidViewModel(applicat
     private val _insertResult = MutableLiveData<Boolean>()
     val insertResult: LiveData<Boolean> get() = _insertResult
 
+    // LiveData to hold the result of the update operation
+    private val _updateResult = MutableLiveData<Boolean>()
+    val updateResult: LiveData<Boolean> get() = _updateResult
+
     init {
         val userProfileDao = UserDatabase.getDatabase(application).userProfileDao()
         repository = UserProfileRepository(userProfileDao)
@@ -39,9 +43,16 @@ class UserProfileViewModel(application: Application) : AndroidViewModel(applicat
 
     fun updateUserProfile(userProfile: UserProfile) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.update(userProfile)
+            try {
+                repository.update(userProfile)
+                // After updating, fetch the updated list (optional)
+                getUserProfiles() // You might need to adjust this based on how you're storing the list
+            } catch (e: Exception) {
+                // Handle error if necessary
+            }
         }
     }
+
 
     fun deleteUserProfile(userProfile: UserProfile) {
         viewModelScope.launch(Dispatchers.IO) {

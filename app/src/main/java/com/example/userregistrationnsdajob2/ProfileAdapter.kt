@@ -68,9 +68,10 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     val profile = getItem(position)
-                    onUpdateClickListener?.invoke(profile)
+                    onUpdateClickListener?.invoke(profile)  // This should trigger the listener set in ProfileListActivity
                 }
             }
+
         }
 
         private fun showDeleteConfirmationDialog(profile: UserProfile) {

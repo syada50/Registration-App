@@ -1,14 +1,14 @@
 package com.example.userregistrationnsdajob2
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import android.app.ProgressDialog as AndroidAppProgressDialog
-import android.os.Handler
 
 class UpdateProfileActivity : AppCompatActivity() {
     private lateinit var profileViewModel: UserProfileViewModel
@@ -29,8 +29,12 @@ class UpdateProfileActivity : AppCompatActivity() {
         // Initialize ViewModel
         profileViewModel = ViewModelProvider(this).get(UserProfileViewModel::class.java)
 
-        // Retrieve user profile from intent
-        userProfile = intent.getSerializableExtra("USER_PROFILE") as UserProfile
+        // Retrieve user profile from intent with null safety
+        userProfile = intent.getSerializableExtra("USER_PROFILE") as? UserProfile ?: run {
+            Toast.makeText(this, "User profile not found", Toast.LENGTH_SHORT).show()
+            finish() // Close the activity if no profile is found
+            return
+        }
 
         // Initialize UI elements
         nameEditText = findViewById(R.id.profileNameEt)
@@ -76,6 +80,12 @@ class UpdateProfileActivity : AppCompatActivity() {
         val dob = dobEditText.text.toString().trim()
         val district = districtEditText.text.toString().trim()
         val mobile = mobileEditText.text.toString().trim()
+
+        // Validate input
+        if (name.isEmpty() || email.isEmpty() || dob.isEmpty() || district.isEmpty() || mobile.isEmpty()) {
+            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+            return
+        }
 
         // Create updated user profile object
         val updatedUserProfile = UserProfile(
