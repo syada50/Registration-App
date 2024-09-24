@@ -7,7 +7,7 @@ import java.io.Serializable
 @Entity (tableName = "user_profile")
 data class UserProfile(
    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
+    val id: Long=0,
     val name: String,
     val email: String,
     val dob: String,

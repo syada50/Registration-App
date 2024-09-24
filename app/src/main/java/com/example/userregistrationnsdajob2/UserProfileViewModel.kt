@@ -3,12 +3,17 @@ package com.example.userregistrationnsdajob2
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class UserProfileViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: UserProfileRepository
+
+    // LiveData to hold the result of the insert operation
+    private val _insertResult = MutableLiveData<Boolean>()
+    val insertResult: LiveData<Boolean> get() = _insertResult
 
     init {
         val userProfileDao = UserDatabase.getDatabase(application).userProfileDao()
@@ -21,7 +26,14 @@ class UserProfileViewModel(application: Application) : AndroidViewModel(applicat
 
     fun insertUserProfile(userProfile: UserProfile) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.insert(userProfile)
+            try {
+                repository.insert(userProfile)
+                // Post success to LiveData
+                _insertResult.postValue(true)
+            } catch (e: Exception) {
+                // Post failure to LiveData
+                _insertResult.postValue(false)
+            }
         }
     }
 

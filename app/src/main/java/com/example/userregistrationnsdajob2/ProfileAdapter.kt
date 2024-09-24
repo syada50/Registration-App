@@ -5,10 +5,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import androidx.appcompat.app.AlertDialog
 
 class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder>(DiffCallback()) {
 
@@ -82,9 +82,7 @@ class ProfileAdapter : ListAdapter<UserProfile, ProfileAdapter.ProfileViewHolder
                     onDeleteClickListener?.invoke(profile)
                     dialog.dismiss()
                 }
-                .setNegativeButton("No") { dialog, _ ->
-                    dialog.cancel()
-                }
+                .setNegativeButton("No") { dialog, _ -> dialog.cancel() }
                 .create()
                 .show()
         }

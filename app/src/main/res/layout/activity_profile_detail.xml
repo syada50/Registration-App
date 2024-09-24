@@ -29,6 +29,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginBottom="8dp"
             android:text="Name:"
+            android:drawableLeft="@drawable/person"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -45,22 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="Email:"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/emailTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/dobLabelTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:text="Date of Birth:"
+            android:drawableLeft="@drawable/baseline_email_24"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -72,11 +58,30 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/districtLabelTextView"
+            android:id="@+id/dobLabelTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="District:"
+            android:text="Date of Birth:"
+            android:drawableLeft="@drawable/calender"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/emailTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/districtLabelTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:drawableLeft="@drawable/baseline_location_on_24"
+            android:text="Address:"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -84,7 +89,7 @@
             android:id="@+id/districtTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:textSize="16sp" />
 
         <TextView
@@ -93,6 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="Mobile:"
+            android:drawableLeft="@drawable/baseline_phone_android_24"
             android:textSize="18sp"
             android:textStyle="bold" />
 

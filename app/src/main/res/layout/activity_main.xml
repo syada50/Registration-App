@@ -16,46 +16,54 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="215dp"
-            android:layout_height="231dp"
-            android:layout_marginStart="112dp"
-            android:layout_marginTop="38dp"
-            android:layout_marginBottom="26dp"
+            android:layout_width="214dp"
+            android:layout_height="210dp"
+            android:layout_marginTop="4dp"
             android:src="@drawable/img"
-            app:layout_constraintBottom_toTopOf="@+id/textView"
+
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/editText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="Doctor's home"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/imageView"
+            app:layout_constraintTop_toBottomOf="@id/imageView" />
+
+        <TextView
             android:id="@+id/textView"
-            android:layout_width="357dp"
-            android:layout_height="80dp"
-            android:layout_marginBottom="392dp"
+            android:layout_width="282dp"
+            android:layout_height="136dp"
+            android:layout_marginTop="76dp"
             android:backgroundTint="#CDDC39"
-            android:text="Welcome To yasmin's User Registration App"
+            android:text="Welcome To Doctors Home  App"
             android:textAlignment="center"
             android:textSize="24sp"
             android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.487"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            app:layout_constraintVertical_bias="0.402" />
+            app:layout_constraintEnd_toEndOf="@+id/editText"
+            app:layout_constraintStart_toStartOf="@+id/editText"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
 
         <Button
             android:id="@+id/profileListBtn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="128dp"
+            android:layout_width="148dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="108dp"
             android:background="@drawable/rounded_button"
             android:backgroundTint="#653C97D5"
             android:elevation="4dp"
             android:text="Profile list"
             android:textColor="@android:color/white"
             android:textSize="20sp"
+
             app:layout_constraintEnd_toEndOf="@+id/textView"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.414"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
 
